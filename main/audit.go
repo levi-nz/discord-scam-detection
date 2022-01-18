@@ -19,6 +19,7 @@ func auditMessage(s *discordgo.Session, event *discordgo.MessageCreate, addresse
 
 		if err := s.ChannelMessageDelete(event.ChannelID, event.Message.ID); err != nil {
 			log.Println("Error deleting message:", err)
+			return
 		}
 
 		log.Println("Deleted message:", event.Message.Content)
